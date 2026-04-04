@@ -1,0 +1,34 @@
+[
+  {
+    "description": "Login page loads and accepts credentials",
+    "url": "https://www.saucedemo.com",
+    "assertions": [
+      "Login form is visible",
+      "Username field accepts input",
+      "Password field accepts input",
+      "Login button is clickable"
+    ],
+    "tags": ["smoke", "auth"]
+  },
+  {
+    "description": "Inventory page displays products after login",
+    "url": "https://www.saucedemo.com/inventory.html",
+    "assertions": [
+      "At least 1 product is visible",
+      "Product names are not empty",
+      "Product prices are displayed",
+      "Cart icon is visible"
+    ],
+    "tags": ["smoke", "inventory"]
+  },
+  {
+    "description": "Product can be added to cart",
+    "url": "https://www.saucedemo.com/inventory.html",
+    "assertions": [
+      "Add to cart button exists",
+      "Clicking add to cart updates the cart badge",
+      "Cart badge shows count of 1"
+    ],
+    "tags": ["regression", "cart"]
+  }
+]
