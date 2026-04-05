@@ -12,7 +12,7 @@ describe('TestGenerator', () => {
 
     expect(result.framework).toBe('playwright');
     expect(result.language).toBe('typescript');
-    expect(result.code).toContain("@playwright/test");
+    expect(result.code).toContain('@playwright/test');
     expect(result.code).toContain('example.com');
     expect(result.timestamp).toBeDefined();
   });

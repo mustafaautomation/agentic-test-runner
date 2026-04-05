@@ -9,10 +9,7 @@ import { printReport, buildReport } from './reporters/console.reporter';
 
 const program = new Command();
 
-program
-  .name('atr')
-  .description('AI-powered test generation agent')
-  .version('1.0.0');
+program.name('atr').description('AI-powered test generation agent').version('1.0.0');
 
 program
   .command('generate')

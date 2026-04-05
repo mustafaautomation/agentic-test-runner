@@ -35,10 +35,7 @@ describe('buildTestGenerationPrompt', () => {
 
 describe('buildSelfHealPrompt', () => {
   it('should include original code and error', () => {
-    const prompt = buildSelfHealPrompt(
-      'const x = 1;',
-      'TypeError: x is not a function',
-    );
+    const prompt = buildSelfHealPrompt('const x = 1;', 'TypeError: x is not a function');
     expect(prompt).toContain('const x = 1;');
     expect(prompt).toContain('TypeError: x is not a function');
   });

@@ -1,8 +1,14 @@
 import { ValidationResult } from '../core/types';
 
 const REQUIRED_IMPORTS = [
-  { pattern: /import\s+\{[^}]*test[^}]*\}\s+from\s+['"]@playwright\/test['"]/, name: 'test import' },
-  { pattern: /import\s+\{[^}]*expect[^}]*\}\s+from\s+['"]@playwright\/test['"]/, name: 'expect import' },
+  {
+    pattern: /import\s+\{[^}]*test[^}]*\}\s+from\s+['"]@playwright\/test['"]/,
+    name: 'test import',
+  },
+  {
+    pattern: /import\s+\{[^}]*expect[^}]*\}\s+from\s+['"]@playwright\/test['"]/,
+    name: 'expect import',
+  },
 ];
 
 const STRUCTURE_CHECKS = [
@@ -13,7 +19,10 @@ const STRUCTURE_CHECKS = [
 
 const ANTI_PATTERNS = [
   { pattern: /require\s*\(/, message: 'Uses require() instead of ES import' },
-  { pattern: /page\.waitForTimeout\s*\(\s*\d{4,}/, message: 'Long hardcoded wait detected (use waitFor* instead)' },
+  {
+    pattern: /page\.waitForTimeout\s*\(\s*\d{4,}/,
+    message: 'Long hardcoded wait detected (use waitFor* instead)',
+  },
   { pattern: /page\.\$\(/, message: 'Uses deprecated page.$() — use page.locator()' },
   { pattern: /page\.click\s*\(/, message: 'Uses deprecated page.click() — use locator.click()' },
 ];

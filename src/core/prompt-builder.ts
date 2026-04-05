@@ -25,10 +25,7 @@ ${assertions}
 Return ONLY valid TypeScript code that can be saved as a \`.spec.ts\` file and executed with \`npx playwright test\`.`;
 }
 
-export function buildSelfHealPrompt(
-  originalCode: string,
-  error: string,
-): string {
+export function buildSelfHealPrompt(originalCode: string, error: string): string {
   return `The following Playwright test failed. Fix the test code to resolve the error.
 
 ## Original Test Code

@@ -24,11 +24,13 @@ export function printReport(report: AgentReport): void {
 
   for (const result of report.results) {
     const validIcon = result.validation.valid ? `${GREEN}✓` : `${RED}✗`;
-    const execIcon = result.execution?.passed ? `${GREEN}✓` : result.execution ? `${RED}✗` : `${DIM}—`;
+    const execIcon = result.execution?.passed
+      ? `${GREEN}✓`
+      : result.execution
+        ? `${RED}✗`
+        : `${DIM}—`;
 
-    console.log(
-      `  ${validIcon}${RESET} ${BOLD}${result.spec.description}${RESET}`,
-    );
+    console.log(`  ${validIcon}${RESET} ${BOLD}${result.spec.description}${RESET}`);
     console.log(
       `    Validation: ${result.validation.valid ? `${GREEN}valid` : `${RED}${result.validation.errors.length} errors`}${RESET}  ` +
         `Execution: ${execIcon}${RESET}${result.execution?.duration ? ` ${DIM}${result.execution.duration}ms${RESET}` : ''}`,
